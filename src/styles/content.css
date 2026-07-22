@@ -1,0 +1,214 @@
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 200px;
+  height: 34px;
+  color: var(--amethyst-soft);
+  filter: drop-shadow(0 0 6px rgba(123, 77, 255, 0.55));
+}
+
+.ornament__line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, currentColor);
+}
+
+.ornament__line--right {
+  background: linear-gradient(90deg, currentColor, transparent);
+}
+
+.ornament__flower {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  color: var(--amethyst-soft);
+  filter: drop-shadow(0 0 8px var(--amethyst)) drop-shadow(0 0 16px rgba(199, 125, 255, 0.5));
+  animation: breathe 6s ease-in-out infinite;
+}
+
+.ornament__flower svg { width: 100%; height: 100%; display: block; }
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 5.2vw, 4.6rem);
+  line-height: 1.04;
+  letter-spacing: 0.01em;
+  color: var(--moon-ivory);
+  text-shadow: 0 0 45px rgba(123, 77, 255, 0.45), 0 0 12px rgba(199, 125, 255, 0.3);
+}
+
+.title__glow {
+  display: block;
+  font-family: var(--font-title);
+  font-weight: 400;
+  font-size: 0.34em;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  margin-top: 1.1rem;
+  color: var(--amethyst-soft);
+  text-shadow: 0 0 20px rgba(166, 123, 255, 0.5);
+}
+
+.aspect__name {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--moon-ivory);
+}
+
+.epithet {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.15rem, 1.8vw, 1.5rem);
+  line-height: 1.5;
+  color: var(--ivory-dim);
+  max-width: 34ch;
+}
+
+.epithet em {
+  color: var(--rose-forbidden);
+  font-style: italic;
+}
+
+.divider {
+  width: 100%;
+  max-width: 32ch;
+  height: 1px;
+  border: none;
+  background: linear-gradient(90deg, rgba(166,123,255,0.5), transparent);
+}
+
+.aspects {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  list-style: none;
+}
+
+.aspect {
+  position: relative;
+  padding-left: 2.8rem;
+}
+
+.aspect__mark {
+  position: absolute;
+  left: 0;
+  top: 0.02em;
+  width: 24px;
+  height: 24px;
+  color: var(--amethyst);
+  filter: drop-shadow(0 0 6px var(--amethyst)) drop-shadow(0 0 12px rgba(123, 77, 255, 0.6));
+}
+
+.aspect__mark svg { width: 100%; height: 100%; display: block; }
+
+.aspect--forbidden .aspect__mark {
+  color: var(--spore);
+  filter: drop-shadow(0 0 6px var(--spore)) drop-shadow(0 0 12px rgba(77, 255, 184, 0.6));
+}
+
+.aspect--forbidden .aspect__name { color: var(--spore); }
+
+.aspect__desc {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.45;
+  color: var(--ivory-dim);
+  margin-top: 0.15rem;
+  max-width: 40ch;
+}
+
+.signature {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  color: var(--amethyst-soft);
+  width: fit-content;
+  transition: color 0.4s ease;
+}
+
+.signature__glyph {
+  display: inline-flex;
+  width: 44px;
+  color: var(--rose-forbidden);
+  filter: drop-shadow(0 0 6px currentColor);
+  transition: color 0.4s ease;
+}
+
+.signature__glyph svg { width: 100%; height: auto; overflow: visible; }
+
+.signature__star {
+  filter: drop-shadow(0 0 3px #dfe4f0);
+  animation: twinkle-star 3.2s ease-in-out infinite;
+}
+
+.signature__star--sm { animation-duration: 4.1s; animation-delay: -1.6s; }
+.signature__star--sm:last-of-type { animation-delay: -2.8s; }
+
+.signature__text {
+  font-family: var(--font-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.74rem;
+  color: var(--ivory-faint);
+  transition: color 0.4s ease, text-shadow 0.4s ease;
+}
+
+.signature__site {
+  color: var(--ivory-dim);
+  letter-spacing: 0.2em;
+  transition: color 0.4s ease, text-shadow 0.4s ease;
+}
+
+.signature:hover .signature__text { color: var(--ivory-dim); }
+
+.signature:hover .signature__site {
+  color: var(--moon-ivory);
+  text-shadow: 0 0 14px rgba(199, 125, 255, 0.7);
+}
+
+.signature:hover .signature__glyph { color: var(--spore); }
+
+@keyframes twinkle-star {
+  0%, 100% { opacity: 0.45; transform: scale(0.85); }
+  50%      { opacity: 1; transform: scale(1.15); }
+}
+
+@media (max-width: 860px) {
+  .aspect { padding-left: 0; }
+  .aspect__mark { position: static; display: inline-block; margin-bottom: 0.4rem; }
+  .aspects { align-items: center; }
+  .aspect__desc, .epithet { max-width: 46ch; }
+  .ornament { margin: 0 auto; }
+}
+
+@media (min-width: 1900px) {
+  .title { font-size: 5.6rem; }
+  .epithet { font-size: 1.75rem; }
+  .aspect__name { font-size: 1.45rem; }
+  .aspect__desc { font-size: 1.45rem; }
+  .signature__text { font-size: 1rem; }
+  .ornament { width: 300px; height: 44px; }
+  .ornament__flower { width: 44px; height: 44px; }
+  .aspect { padding-left: 3.4rem; }
+  .aspect__mark { width: 32px; height: 32px; }
+}
+
+@media (min-width: 2560px) {
+  .title { font-size: 7rem; }
+  .epithet { font-size: 2.2rem; }
+  .aspect__name { font-size: 1.8rem; }
+  .aspect__desc { font-size: 1.8rem; }
+  .signature__text { font-size: 1.25rem; }
+  .ornament { width: 380px; height: 56px; }
+  .ornament__flower { width: 56px; height: 56px; }
+  .aspect { padding-left: 4.2rem; }
+  .aspect__mark { width: 40px; height: 40px; }
+}
