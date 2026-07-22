@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Motes from './Motes';
 import sylv from './assets/sylv.PNG';
 import './styles/layout.css';
@@ -5,6 +6,7 @@ import './styles/content.css';
 import './styles/effects.css';
 
 const PORTRAIT = sylv;
+
 
 const ASPECTS = [
   {
@@ -41,6 +43,9 @@ function Flower() {
 }
 
 export default function App() {
+
+  const [loaded, setLoaded] = useState(false);
+
   return (
     <div className="page">
       <div className="stage">
@@ -48,7 +53,12 @@ export default function App() {
           <div className="portrait__aura" aria-hidden="true" />
           <div className="portrait__frame">
             {PORTRAIT ? (
-              <img className="portrait__img" src={PORTRAIT} alt="Portrait of Sylvariae Shadowrose" />
+              <img
+  className={`portrait__img${loaded ? ' is-loaded' : ''}`}
+  src={PORTRAIT}
+  alt="Portrait of Sylvariae Shadowrose"
+  onLoad={() => setLoaded(true)}
+/>
             ) : (
               <div className="portrait__placeholder" role="img" aria-label="Portrait placeholder">
                 <span className="portrait__placeholder-sigil">✶</span>

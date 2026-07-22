@@ -158,6 +158,19 @@
   letter-spacing: 0;
 }
 
+.portrait__img {
+  opacity: 0;
+  transform: scale(1.04);
+  filter: blur(12px);
+  transition: opacity 1.4s ease, transform 1.8s cubic-bezier(0.16, 1, 0.3, 1), filter 1.4s ease;
+}
+
+.portrait__img.is-loaded {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+}
+
 @media (max-width: 860px) {
   .stage { grid-template-columns: 1fr; }
   .portrait__img,
