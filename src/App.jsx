@@ -121,10 +121,12 @@ export default function App() {
         <span className="footer__divider" aria-hidden="true" />
 
         <p className="credit">
-          Art by <span className="credit__name">@darkladyiwase</span>
-          <span className="credit__amp"> &amp; </span>
-          <span className="credit__name">@fxk_art</span>
-        </p>
+ <a className="credit" href="https://x.com/darkladyiwase" target="_blank" rel="noreferrer">
+  Art by <span className="credit__name">@darkladyiwase</span>
+  <span className="credit__amp"> &amp; </span>
+  <span className="credit__name">@fxk_art</span>
+</a>
+</p>
       </footer>
 
       <Motes count={80} />

@@ -146,11 +146,24 @@
   text-transform: uppercase;
   font-size: 0.72rem;
   color: var(--ivory-faint);
+  text-decoration: none;
+  transition: color 0.4s ease, text-shadow 0.4s ease;
+}
+
+.credit:hover .credit__name {
+  color: var(--moon-ivory);
+  text-shadow: 0 0 14px rgba(199, 125, 255, 0.7);
 }
 
 .credit__name {
   color: var(--ivory-dim);
+  text-decoration: none;
   transition: color 0.4s ease, text-shadow 0.4s ease;
+}
+
+a.credit__name:hover {
+  color: var(--moon-ivory);
+  text-shadow: 0 0 14px rgba(199, 125, 255, 0.7);
 }
 
 .credit__amp {
